@@ -13,6 +13,7 @@ import android.support.v4.app.TaskStackBuilder;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.graphics.Palette;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -21,12 +22,14 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
 
 
+    String TAG = getClass().getSimpleName();
     TextView textView1,textView2,textView3;
     private CollapsingToolbarLayout collapsingToolbarLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.d("mvv"," "+TAG+" onCreate ");
         setContentView(R.layout.activity_main);
         textView1 = (TextView)findViewById(R.id.b);
         textView2 = (TextView)findViewById(R.id.c);

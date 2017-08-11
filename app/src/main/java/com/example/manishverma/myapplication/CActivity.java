@@ -10,11 +10,15 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 
-public class CActivity  extends EmptyActivity {
+public class CActivity  extends EmptyActivity implements Fragment_step5.ISwitchFragment {
 
+
+    String TAG = getClass().getSimpleName();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        Log.d("mvv", " " + TAG + " onCreate ");
         setContentView(R.layout.activity_c);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -49,6 +53,7 @@ public class CActivity  extends EmptyActivity {
     protected void onDestroy() {
         super.onDestroy();
 
+        Log.d("mvv", " " + TAG + " onDestroy ");
         if(getSupportFragmentManager().findFragmentById(R.id.container) != null) {
 
             Fragment frg = getSupportFragmentManager().findFragmentById(R.id.container);
@@ -58,5 +63,24 @@ public class CActivity  extends EmptyActivity {
             }
         }
 
+    }
+
+    @Override
+    public void switchFragmet() {
+
+        if (getSupportFragmentManager().findFragmentById(R.id.container) == null) {
+            Fragment mFragment = new Fragment_step5();
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.add(R.id.container, mFragment).commit();
+            Log.d("mvv", " switchFragmet... add frag  ");
+        } else {
+
+            Fragment mFragment = new FragmentB();
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.addToBackStack(null);
+            ft.replace(R.id.container, mFragment).commit();
+
+            Log.d("mvv", " replace frag  ");
+        }
     }
 }

@@ -17,7 +17,6 @@
 package com.example.manishverma.myapplication;
 
 
-import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -27,14 +26,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
-import android.widget.FrameLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
 /**
  * Shows a SeekBar that should be synced with a value in a ViewModel.
  */
-public class Fragment_step5 extends Fragment {
+public class FragmentB extends Fragment {
     String TAG = "Fragment_step5";
 
     private SeekBar mSeekBar;
@@ -75,9 +73,9 @@ public class Fragment_step5 extends Fragment {
         mSeekBar = (SeekBar) root.findViewById(R.id.seekBar);
         editText = (EditText) root.findViewById(R.id.text1);
         textView = (TextView)root.findViewById(R.id.text2);
-
         Log.d("mvv", TAG+"   onCreateView");
                  subscribeSeekBar();
+        ( (root.findViewById(R.id.frame_container))).setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.red));
 
         return root;
     }
@@ -94,7 +92,6 @@ public class Fragment_step5 extends Fragment {
         @Override
         public void onClick(View v) {
 
-            mISwitchFragment.switchFragmet();
 
 
         }
@@ -104,7 +101,6 @@ public class Fragment_step5 extends Fragment {
 
         // Update the ViewModel when the SeekBar is changed.
 
-        textView.setText("Fragment A");
 
         textView.setOnClickListener(listener);
         mSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {

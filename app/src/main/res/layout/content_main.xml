@@ -30,6 +30,7 @@
         android:id="@+id/d"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/c"
         android:layout_alignParentBottom="true"
         android:text="Actvity D" />
 </RelativeLayout>

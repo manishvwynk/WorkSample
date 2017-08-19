@@ -33,7 +33,7 @@ import android.widget.TextView;
  * Shows a SeekBar that should be synced with a value in a ViewModel.
  */
 public class FragmentB extends Fragment {
-    String TAG = "Fragment_step5";
+    String TAG = getClass().getSimpleName();
 
     private SeekBar mSeekBar;
     public String name ;

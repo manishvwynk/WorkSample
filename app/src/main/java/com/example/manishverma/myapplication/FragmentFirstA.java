@@ -34,8 +34,8 @@ import android.widget.TextView;
 /**
  * Shows a SeekBar that should be synced with a value in a ViewModel.
  */
-public class Fragment_step5 extends Fragment {
-    String TAG = "Fragment_step5";
+public class FragmentFirstA extends Fragment {
+    String TAG = getClass().getSimpleName();
 
     private SeekBar mSeekBar;
     public String name ;
@@ -87,7 +87,7 @@ public class Fragment_step5 extends Fragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 //        setRetainInstance(true);
-        Log.d("mvv", TAG+" ###### onViewCreated");
+        Log.d("mvv", TAG+"  onViewCreated");
     }
 
     View.OnClickListener listener = new View.OnClickListener() {
@@ -132,13 +132,14 @@ public class Fragment_step5 extends Fragment {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        Log.d("mvv", TAG+" onDestroy Frag "+mSeekBar.getProgress()+ "  "+name);
+
+        Log.d("mvv", TAG+" onDestroy Frag "+(mSeekBar != null ? mSeekBar.getProgress():-99)+ "  "+name);
     }
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        Log.d("mvv", TAG+" onDestroyView Frag .." + mSeekBar.getProgress() + "  " + name);
+        Log.d("mvv", TAG+" onDestroyView Frag .." + (mSeekBar != null ? mSeekBar.getProgress():-99) + "  " + name);
     }
 
     interface ISwitchFragment{
